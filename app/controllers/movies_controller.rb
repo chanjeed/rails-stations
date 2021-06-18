@@ -9,6 +9,8 @@ class MoviesController < ApplicationController
       case params[:is_showing]
       when nil
         @movies = Movie.search(params[:name])
+      when ""
+        @movies = Movie.search(params[:name])
       else
         @movies = Movie.search(params[:name]).where(is_showing: params[:is_showing])
       end
