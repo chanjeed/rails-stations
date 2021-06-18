@@ -33,7 +33,7 @@ RSpec.describe MoviesController, type: :controller do
       end
 
       it 'moviesテーブル内のimage_urlが画像として表示されていること' do
-        expect(response.body).to include("<img src=\"#{movies.first.image_url}\"")
+        expect(response.body).to include("<img src=#{movies.first.image_url}")
       end
     end
   end
