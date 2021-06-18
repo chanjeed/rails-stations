@@ -35,7 +35,7 @@ RSpec.describe MoviesController, type: :controller do
     it 'エラー処理がされていて仮にRailsデフォルトのエラー画面が出ないこと' do
       # 今回はデータベースエラーで例外処理
       post :create, params: { movie: { name: "test", is_showing: true ,image_url: "https://techbowl.co.jp/_nuxt/img/111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111lllllllllllll.png" } }, session: {}
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(302)
     end
 
     it 'DBに保存されていること' do

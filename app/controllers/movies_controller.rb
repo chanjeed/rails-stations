@@ -24,12 +24,9 @@ class MoviesController < ApplicationController
         )
         redirect_to admin_movies_path
       rescue => e
-        if e.class===ActiveRecord::RecordNotUnique
-          redirect_to admin_movies_new_path, flash: { error: "タイトル重複" }
-        else
-          redirect_to admin_movies_new_path, flash: { error: "error #{e.class}" }
-        end
-
+        
+        redirect_to admin_movies_new_path, flash: { error: "error #{e.class}" }
+  
       end
 
     end
