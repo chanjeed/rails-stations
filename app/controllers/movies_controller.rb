@@ -53,14 +53,10 @@ class MoviesController < ApplicationController
 
     # DELETE /admin/movies/:id/
     def destroy
-      begin
+   
         Movie.find(params[:id]).destroy
         redirect_to movies_path, flash: { alert: "Delete movie##{params[:id]}" }
-      rescue => e
-        
-        redirect_to movies_path, flash: { error: "error #{e.class}" }, :status => :bad_request
-
-      end
+     
     end
    
 end
