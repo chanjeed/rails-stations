@@ -22,10 +22,10 @@ class MoviesController < ApplicationController
         :is_showing => params[:movie][:is_showing],
         :image_url => params[:movie][:image_url]
         )
-        redirect_to admin_movies_path
+        redirect_to movies_path
       rescue => e
         
-        redirect_to admin_movies_new_path, flash: { error: "error #{e.class}" }
+        redirect_to movies_new_path, flash: { error: "error #{e.class}" }
   
       end
 
@@ -37,14 +37,17 @@ class MoviesController < ApplicationController
     end
     
     def update
-      @movie.update(
-        :name => params[:movie][:name],
+      begin
+        @movie = Movie.find(params[:id])
+        @movie.update(:name => params[:movie][:name],
         :year => params[:movie][:year],
         :description => params[:movie][:description],
         :is_showing => params[:movie][:is_showing],
-        :image_url => params[:movie][:image_url]
-      )
-      head :no_content
+        :image_url => params[:movie][:image_url])
+        redirect_to movies_path
+      rescue => e
+        redirect_to edit_movie_path, flash: { error: "error #{e.class}" }
+      end
     end
    
 end

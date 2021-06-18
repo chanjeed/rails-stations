@@ -1,7 +1,7 @@
 <h1>Movies Create</h1>
 
 
-<%= form_for(@movie, url: admin_movies_path) do |f| %>
+<%= form_for(@movie, url: movies_path) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name, class:'form_control' %><br>
 <%= f.label :year %>
