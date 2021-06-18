@@ -1,10 +1,12 @@
 class MoviesController < ApplicationController
     protect_from_forgery with: :exception
+
     
 
     # GET /admin/movies
     def index
-      @movies = Movie.all
+      @movies = Movie.search(params[:search])
+      # @movies = Movie.where(is_showing: params[:show])
     end
 
     # GET /admin/movies/new
@@ -19,7 +21,7 @@ class MoviesController < ApplicationController
         :name => params[:movie][:name],
         :year => params[:movie][:year],
         :description => params[:movie][:description],
-        :is_showing => params[:movie][:is_showing],
+        :is_showing => params[:movie][:is_showing].to_i,
         :image_url => params[:movie][:image_url]
         )
         redirect_to movies_path
@@ -43,7 +45,7 @@ class MoviesController < ApplicationController
         @movie.update(:name => params[:movie][:name],
         :year => params[:movie][:year],
         :description => params[:movie][:description],
-        :is_showing => params[:movie][:is_showing],
+        :is_showing => params[:movie][:is_showing].to_i,
         :image_url => params[:movie][:image_url])
         redirect_to movies_path
       rescue => e
@@ -58,5 +60,6 @@ class MoviesController < ApplicationController
         redirect_to movies_path, flash: { alert: "Delete movie##{params[:id]}" }
      
     end
+
    
 end

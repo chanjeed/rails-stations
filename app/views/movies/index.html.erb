@@ -2,6 +2,21 @@
 <%flash.each do |name,msg| %>
 <div class="alert"><%= msg%></div>
 <% end %>
+<br>
+<%= form_tag(movies_path, method: :get) do %>
+<%= text_field_tag :search %>
+<%= submit_tag 'Search', name: nil %>
+<% end %>
+<br>
+<%= form_with(model: @movie, local: true) do |form| %>
+<%= form.radio_button :show, :all %>
+<%= form.label :show, "すべて", {value: :all, style: "display: inline-block;"} %>
+<%= form.radio_button :show, :true %>
+<%= form.label :show, "上映中", {value: :true, style: "display: inline-block;"} %>
+<%= form.radio_button :show, :false %>
+<%= form.label :show, "上映予定", {value: :flase, style: "display: inline-block;"} %>
+<% end %>
+<br>
 <table>
     <thead>
         <tr>
