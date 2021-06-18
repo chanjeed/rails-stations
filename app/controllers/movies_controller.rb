@@ -31,8 +31,8 @@ class MoviesController < ApplicationController
 
     end
 
-    # GET /admin/movies/:id
-    def show
+    # GET /admin/movies/:id/edit
+    def edit
       @movie = Movie.find(params[:id])
     end
     
