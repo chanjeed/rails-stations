@@ -5,8 +5,14 @@ class MoviesController < ApplicationController
 
     # GET /admin/movies
     def index
-      @movies = Movie.search(params[:name])
-      # @movies = Movie.where(is_showing: params[:show])
+      case params[:showing]
+      when "all"
+        @movies = Movie.search(params[:name])
+      when "true"
+        @movies = Movie.search(params[:name]).where(is_showing: true)
+      else
+        @movies = Movie.search(params[:name]).where(is_showing: false)
+      end
     end
 
     # GET /admin/movies/new
