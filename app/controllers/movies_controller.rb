@@ -30,6 +30,11 @@ class MoviesController < ApplicationController
       end
 
     end
+
+    # GET /admin/movies/:id
+    def show
+      @movie = Movie.find(params[:id])
+    end
    
    
 end
