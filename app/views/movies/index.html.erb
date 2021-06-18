@@ -1,5 +1,7 @@
-<h1>Listing Movies</h1>
-
+<h1>Listing Movies</h1><br>
+<%flash.each do |name,msg| %>
+<div class="alert"><%= msg%></div>
+<% end %>
 <table>
     <thead>
         <tr>
