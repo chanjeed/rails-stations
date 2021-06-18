@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
 
     # GET /admin/movies
     def index
-      @movies = Movie.search(params[:search])
+      @movies = Movie.search(params[:name])
       # @movies = Movie.where(is_showing: params[:show])
     end
 
