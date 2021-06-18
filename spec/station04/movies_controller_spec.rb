@@ -25,7 +25,7 @@ RSpec.describe MoviesController, type: :controller do
 
   describe 'Station4 PUT /admin/movies/:id' do
     let!(:movie) { create(:movie) }
-    let!(:movie_attributes) { { name: "TEST" } }
+    let!(:movie_attributes) { { name: "TEST" ,year: "2021" ,image_url: "https://techbowl.co.jp/_nuxt/img/1.jpg" ,is_showing: true  } }
 
     it '302を返すこと' do
       post :update, params: { id: movie.id, movie: movie_attributes }, session: {}
