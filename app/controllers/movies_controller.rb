@@ -5,13 +5,12 @@ class MoviesController < ApplicationController
 
     # GET /admin/movies
     def index
-      case params[:showing]
-      when "all"
+      @movies = Movie.all()
+      case params[:is_showing]
+      when nil
         @movies = Movie.search(params[:name])
-      when "true"
-        @movies = Movie.search(params[:name]).where(is_showing: true)
       else
-        @movies = Movie.search(params[:name]).where(is_showing: false)
+        @movies = Movie.search(params[:name]).where(is_showing: params[:is_showing])
       end
     end
 
