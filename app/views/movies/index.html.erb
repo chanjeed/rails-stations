@@ -6,8 +6,8 @@
 <%= form_tag(movies_path, method: :get) do %>
 <%= text_field_tag :name %>
 <%= submit_tag 'Search', name: nil %>
-<%= radio_button_tag :is_showing, nil , true%>
-<%= label :is_showing, "すべて", {value: nil, style: "display: inline-block;"} %>
+<%= radio_button_tag :is_showing, ""%>
+<%= label :is_showing, "すべて", {value: "", style: "display: inline-block;"} %>
 <%= radio_button_tag  :is_showing, 1%>
 <%= label :is_showing, "公開中", {value: 1, style: "display: inline-block;"} %>
 <%= radio_button_tag :is_showing, 0 %>

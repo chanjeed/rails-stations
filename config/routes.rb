@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     get 'movies/:id/edit', to: 'movies#edit'
     patch 'movies/:id/edit', to: 'movies#update'
   end
-  
+  resources :sheets
 end
