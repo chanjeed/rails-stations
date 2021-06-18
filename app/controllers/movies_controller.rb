@@ -35,6 +35,16 @@ class MoviesController < ApplicationController
     def show
       @movie = Movie.find(params[:id])
     end
-   
+    
+    def update
+      @movie.update(
+        :name => params[:movie][:name],
+        :year => params[:movie][:year],
+        :description => params[:movie][:description],
+        :is_showing => params[:movie][:is_showing],
+        :image_url => params[:movie][:image_url]
+      )
+      head :no_content
+    end
    
 end

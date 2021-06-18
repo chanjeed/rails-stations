@@ -18,7 +18,7 @@
     <tbody>
         <% @movies.each do |movie| %>
         <tr>
-            <td><a href="<%= movie.id %>"><%= movie.id %></a></td>
+            <td><a href="movies/<%= movie.id %>/edit"><%= movie.id %></a></td>
             <td><%= movie.name %></td>
             <td><%= movie.year %></td>
             <td><%= movie.description %></td>
