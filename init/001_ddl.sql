@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS `app_test`.`movies` (
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE
 );
 
-DELETE FROM `app_development`.`movies`;
-INSERT INTO `app_development`.`movies`  VALUES (1, "Monster","2021","Monster Movies","https://picsum.photos/id/1022/6000/3376.jpg",1,"2021-06-17 00:00:00.000","2021-06-17 00:00:00.000");
+-- DELETE FROM `app_development`.`movies`;
+-- INSERT INTO `app_development`.`movies`  VALUES (1, "Monster","2021","Monster Movies","https://picsum.photos/id/1022/6000/3376.jpg",1,"2021-06-17 00:00:00.000","2021-06-17 00:00:00.000");
 
 -- DELETE FROM `app_test`.`movies`;
 -- INSERT INTO `app_test`.`movies`  VALUES (1, "Monster","2021","Monster Movies","https://picsum.photos/id/1022/6000/3376.jpg",1,"2021-06-17 00:00:00.000","2021-06-17 00:00:00.000");

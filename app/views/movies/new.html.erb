@@ -1,0 +1,20 @@
+<h1>Movies Create</h1>
+
+
+<%= form_for(@movie, url: admin_movies_path) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, class:'form_control' %><br>
+<%= f.label :year %>
+<%= f.text_field :year, class:'form_control' %><br>
+<%= f.label :is_showing %>
+<%= f.text_field :is_showing, class:'form_control' %><br>
+<%= f.label :description %>
+<%= f.text_area :description, class:'form_control' %><br>
+<%= f.label :image_url %>
+<%= f.text_field :image_url, class:'form_control' %><br>
+<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
+<%flash.each do |name,msg| %>
+<div class="alert"><%= msg%></div>
+<% end %>
