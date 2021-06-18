@@ -39,9 +39,9 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     it 'DBに保存されていること' do
-      expect do
+      expect{
         post :update, params: { id: movie.id, movie: movie_attributes }, session: {}
-      end.to change(Movie, :count).by(1)
+      }.to change(Movie, :count).by(1)
     end
   end
 end
