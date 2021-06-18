@@ -53,8 +53,14 @@ class MoviesController < ApplicationController
 
     # DELETE /admin/movies/:id/
     def destroy
-      @todo.destroy
-      head :no_content
+      begin
+        Movie.find(params[:id]).destroy
+        redirect_to movies_path
+      rescue => e
+        
+        redirect_to movies_path, flash: { error: "error #{e.class}" }
+
+      end
     end
    
 end
